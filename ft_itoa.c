@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 15:59:51 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/18 18:45:31 by mharissa         ###   ########.fr       */
+/*   Created: 2019/09/20 23:24:18 by mharissa          #+#    #+#             */
+/*   Updated: 2019/09/20 23:47:32 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strncpy(char * dst, const char * src, size_t len)
+static size_t ft_intlen(int n)
 {
-	size_t i;
+	int i;
 
-	i = 0;
-	while ((src[i] != '\0') && (i < len))
-	{
-		dst[i] = src[i];
+	i =  1;
+	if (n < 0)
 		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
+	while (n /= 10)
 		i++;
-	}
-	return (dst);
+	return (i);
+}
 
+char	*ft_itoa(int n)
+{
+	size_t len;
+	char *str;
+	unsigned int number;
 	
+	len = ft_intlen(n);
+	if (n < 0)
+		number = (unsigned int)-n;
+	else
+		number = (unsigned int)n;
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	str[--len] = number % 10 + '0';
+	while (number /= 10)
+		str[--len] = number % 10 + '0';
+	if (n < 0)
+		str[0] = '-';
+	return (str);
 }

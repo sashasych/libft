@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 17:18:48 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/18 19:10:49 by mharissa         ###   ########.fr       */
+/*   Created: 2019/09/18 23:34:54 by mharissa          #+#    #+#             */
+/*   Updated: 2019/09/18 23:42:42 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
+	char *array;
 	size_t i;
-	size_t j;
-	size_t res;
 
-	j = 0;
+	if (!s)
+		return (NULL);
+	array = ft_strnew(len);
+	if (!array)
+		return (NULL);
 	i = 0;
-	res = 0;
-	i = ft_strlen(dst);
-	res = ft_strlen(src) + i;
-	if (size < i)
-		return (ft_strlen(src) + size);
-	if (size > i + 1)
+	while (i < len)
 	{
-		while (src[j] != '\0' && j < size - 1 - i)
-		{	
-			dst[i + j] = src[j];
-			j++;
-		}
-		dst[i + j] = '\0';
+		array[i] = s[start];
+		i++;
+		start++;
 	}
-	return (res);
+	return (array);
 }

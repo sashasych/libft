@@ -6,7 +6,7 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 21:34:02 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/12 15:51:30 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/18 18:30:55 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void *ft_memset(void *b, int c, size_t len)
 
 	array = (unsigned char*)b;
 	i = 0;
-	if (len <= 0 || !b)
-		return (b);
+	//if (len <= 0 || !b)
+		//return (b);
 	while (i < len)
 	{
 		array[i] = (unsigned char)c;

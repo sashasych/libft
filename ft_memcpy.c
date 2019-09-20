@@ -6,7 +6,7 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 23:20:47 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/11 18:07:44 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/18 18:42:00 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	array1 = (char *)dst;
 	array2 = (char *)src;
-	if (n == 0 || !array1 || !array2)
+	if (!array1 && !array2)
 		return (dst);
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 19:02:39 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/11 18:23:47 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/20 23:01:42 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr(const char *str)
 	int i;
 
 	i = 0;
+	if (!str)
+		return ;
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);
