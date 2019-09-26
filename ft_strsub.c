@@ -6,7 +6,7 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 23:34:54 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/18 23:42:42 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/24 19:38:40 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *array;
-	size_t i;
+	char	*array;
+	size_t	i;
 
 	if (!s)
 		return (NULL);

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 19:14:07 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/24 19:09:07 by mharissa         ###   ########.fr       */
+/*   Created: 2019/09/04 18:12:06 by mharissa          #+#    #+#             */
+/*   Updated: 2019/09/25 15:41:43 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_iterative_factorial(int nb)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
-	{
-		if (n < 0)
+	int result;
+
+	result = 1;
+	if (nb < 0 || nb > 15)
+		return (0);
+	if (nb > 1)
+		while (nb != 1)
 		{
-			n = -n;
-			ft_putchar('-');
+			result *= nb;
+			nb--;
 		}
-		if (n >= 10)
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
-		else
-		{
-			ft_putchar(n + '0');
-		}
-	}
+	return (result);
 }

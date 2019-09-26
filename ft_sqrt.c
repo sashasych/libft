@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 19:14:07 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/24 19:09:07 by mharissa         ###   ########.fr       */
+/*   Created: 2019/09/04 18:52:56 by mharissa          #+#    #+#             */
+/*   Updated: 2019/09/25 15:28:15 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_sqrt(int nb)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
+	int i;
+	int result;
+
+	i = 0;
+	result = 0;
+	while (i * i <= nb)
 	{
-		if (n < 0)
-		{
-			n = -n;
-			ft_putchar('-');
-		}
-		if (n >= 10)
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
-		else
-		{
-			ft_putchar(n + '0');
-		}
+		if (i * i == nb)
+			result = i;
+		i++;
 	}
+	return (result);
 }

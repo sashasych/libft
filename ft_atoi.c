@@ -6,37 +6,36 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 17:09:28 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/11 19:26:59 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/25 16:35:33 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
-	int i;
-	int znak;
-	int result;
+	size_t			i;
+	unsigned long	res;
+	unsigned long	overflow;
+	int				sign;
 
-	result = 0;
 	i = 0;
-	znak = 0;
-	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+	res = 0;
+	overflow = 9223372036854775807;
+	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '-')
-	{
-		znak++;
-		i++;
-	}
-	else if (str[i] == '+')
+	sign = (str[i] == '-') ? -1 : 1;
+	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		if ((res > overflow || (res == overflow && (str[i] - '0') > 7))
+				&& sign == 1)
+			return (-1);
+		else if ((res > overflow || (res == overflow && (str[i] - '0') > 8))
+				&& sign == -1)
+			return (0);
+		res = res * 10 + (str[i++] - '0');
 	}
-	if (znak == 1)
-		result = result * (-1);
-	return (result);
+	return ((int)(res * sign));
 }

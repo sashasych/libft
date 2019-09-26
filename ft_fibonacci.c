@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 19:14:07 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/24 19:09:07 by mharissa         ###   ########.fr       */
+/*   Created: 2019/06/08 21:47:19 by mharissa          #+#    #+#             */
+/*   Updated: 2019/09/25 15:40:44 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_fibonacci(int index)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
+	if (index < 0)
+		return (-1);
+	else if (index == 0)
+		return (0);
+	else if (index == 1)
+		return (1);
 	else
-	{
-		if (n < 0)
-		{
-			n = -n;
-			ft_putchar('-');
-		}
-		if (n >= 10)
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
-		else
-		{
-			ft_putchar(n + '0');
-		}
-	}
+		return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
 }

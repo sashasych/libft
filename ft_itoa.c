@@ -6,30 +6,30 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 23:24:18 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/20 23:47:32 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/26 17:00:57 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t ft_intlen(int n)
+static size_t	ft_intlen(int n)
 {
-	int i;
+	int	i;
 
-	i =  1;
+	i = 1;
 	if (n < 0)
 		i++;
 	while (n /= 10)
 		i++;
-	return (i);
+	return ((size_t)i);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	size_t len;
-	char *str;
-	unsigned int number;
-	
+	size_t			len;
+	char			*str;
+	unsigned int	number;
+
 	len = ft_intlen(n);
 	if (n < 0)
 		number = (unsigned int)-n;

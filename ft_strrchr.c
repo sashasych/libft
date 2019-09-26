@@ -6,7 +6,7 @@
 /*   By: mharissa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 06:02:22 by mharissa          #+#    #+#             */
-/*   Updated: 2019/09/14 06:27:01 by mharissa         ###   ########.fr       */
+/*   Updated: 2019/09/24 19:38:10 by mharissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[len]);
 		len--;
 	}
-	return (NULL);	
+	return (NULL);
 }
